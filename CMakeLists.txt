@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
 
-enable_testing()
-
 project(SortFilterProxyModel)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -9,6 +7,9 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Qt6 REQUIRED COMPONENTS Core Qml)
 
 option(BUILD_DOCS "Build documentation" OFF)
+option(BUILD_TESTING "Build tests" OFF)
+
+include(CTest)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON) # This is to find generated *.moc and *.h files in build dir
