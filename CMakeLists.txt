@@ -45,8 +45,6 @@ add_library(
   proxyroles/regexprole.cpp
   sorters/filtersorter.cpp
   proxyroles/filterrole.cpp
-  utils/utils.cpp
-  utils/utils.h
 )
 
 target_link_libraries(SortFilterProxyModel PRIVATE Qt6::Core Qt6::Qml)
