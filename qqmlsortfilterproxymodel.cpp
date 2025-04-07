@@ -191,11 +191,11 @@ void QQmlSortFilterProxyModel::componentComplete()
 {
     m_completed = true;
 
-    for (const auto& filter : qAsConst(m_filters))
+    for (const auto& filter : std::as_const(m_filters))
         filter->proxyModelCompleted(*this);
-    for (const auto& sorter : qAsConst(m_sorters))
+    for (const auto& sorter : std::as_const(m_sorters))
         sorter->proxyModelCompleted(*this);
-    for (const auto& proxyRole : qAsConst(m_proxyRoles))
+    for (const auto& proxyRole : std::as_const(m_proxyRoles))
         proxyRole->proxyModelCompleted(*this);
 
     invalidate();
@@ -419,7 +419,7 @@ void QQmlSortFilterProxyModel::updateRoleNames()
     auto roles = m_roleNames.keys();
     auto maxIt = std::max_element(roles.cbegin(), roles.cend());
     int maxRole = maxIt != roles.cend() ? *maxIt : -1;
-    for (auto proxyRole : qAsConst(m_proxyRoles)) {
+    for (auto proxyRole : std::as_const(m_proxyRoles)) {
         const auto proxyRoleNames = proxyRole->names();
         for (const auto &roleName : proxyRoleNames) {
             ++maxRole;

@@ -38,9 +38,11 @@ Thumbs.db
 
 # qtcreator generated files
 *.pro.user*
+CMakeLists.txt.user
 
 # qtcreator shadow builds
 build-SortFilterProxyModel-*
+build*
 
 # xemacs temporary files
 *.flc

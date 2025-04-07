@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.14)
 
+enable_testing()
+
+project(SortFilterProxyModel)
+
 set(CMAKE_CXX_STANDARD 17)
 
-if (NOT QT_VERSION_MAJOR)
-    set(QT_VERSION_MAJOR 5)
-endif()
-
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
+find_package(Qt6 REQUIRED COMPONENTS
     Core
     Qml
 )
@@ -64,3 +64,5 @@ target_include_directories(SortFilterProxyModel PUBLIC
     $<TARGET_PROPERTY:Qt::Core,INTERFACE_INCLUDE_DIRECTORIES>
     $<TARGET_PROPERTY:Qt::Qml,INTERFACE_INCLUDE_DIRECTORIES>
 )
+
+add_subdirectory(tests)
