@@ -103,7 +103,7 @@ void SwitchRole::setDefaultValue(const QVariant& defaultValue)
 
 /*!
     \qmlproperty list<Filter> SwitchRole::filters
-    \default
+    \qmldefault
 
     This property holds the list of filters for this proxy role.
     The data of this role will be equal to the attached \l {value} {SwitchRole.value} property of the first filter that matches the model row.

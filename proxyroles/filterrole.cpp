@@ -28,7 +28,7 @@ namespace qqsfpm {
 
 /*!
     \qmlproperty list<Filter> FilterRole::filters
-    \default
+    \qmldefault
 
     This property holds the list of filters for this filter role.
     The data of this role will be equal to the \c true if all its filters match the model row, \c false otherwise.

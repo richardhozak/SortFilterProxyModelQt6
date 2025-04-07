@@ -27,7 +27,7 @@ namespace qqsfpm {
 
 /*!
     \qmlproperty list<Filter> FilterSorter::filters
-    \default
+    \qmldefault
 
     This property holds the list of filters for this filter sorter.
     If a row match all this FilterSorter's filters, it will be ordered before rows not matching all the filters.

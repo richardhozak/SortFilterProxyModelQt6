@@ -27,20 +27,17 @@ namespace qqsfpm {
     }
     \endcode
 */
-
-/*!
-    \qmlproperty bool RegExpFilter::pattern
-
-    The pattern used to filter the contents of the source model.
-
-    \sa syntax
-*/
 RegExpFilter::RegExpFilter() :
     m_caseSensitivity(m_regExp.patternOptions().testFlag(
         QRegularExpression::CaseInsensitiveOption) ? Qt::CaseInsensitive : Qt::CaseSensitive)
 {
 }
 
+/*!
+    \qmlproperty bool RegExpFilter::pattern
+
+    The pattern used to filter the contents of the source model.
+*/
 QString RegExpFilter::pattern() const
 {
     return m_pattern;

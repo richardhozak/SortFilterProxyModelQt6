@@ -8,6 +8,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Qml)
 
+option(BUILD_DOCS "Build documentation" OFF)
+
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON) # This is to find generated *.moc and *.h files in build dir
 
@@ -59,4 +61,18 @@ target_include_directories(
          $<TARGET_PROPERTY:Qt6::Qml,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
-add_subdirectory(tests)
+if(BUILD_DOCS)
+  find_package(ECM REQUIRED NO_MODULE)
+  set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+  include(ECMQueryQt)
+  include(KDEInstallDirs)
+  include(KDECompilerSettings)
+  include(KDECMakeSettings)
+  include(ECMGenerateQDoc)
+
+  ecm_generate_qdoc(SortFilterProxyModel sortfilterproxymodel.qdocconf)
+endif()
+
+if(BUILD_TESTING)
+  add_subdirectory(tests)
+endif()
