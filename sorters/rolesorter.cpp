@@ -19,6 +19,8 @@ namespace qqsfpm {
        sorters: RoleSorter { roleName: "lastName" }
     }
     \endcode
+
+    If used with strings it uses case sensitive comparison. Use \l StringSorter if you want to configure this.
 */
 
 /*!
@@ -56,7 +58,6 @@ QPair<QVariant, QVariant> RoleSorter::sourceData(const QModelIndex &sourceLeft, 
 
 int RoleSorter::compare(const QModelIndex &sourceLeft, const QModelIndex& sourceRight, const QQmlSortFilterProxyModel& proxyModel) const
 {
-
     QPair<QVariant, QVariant> pair = sourceData(sourceLeft, sourceRight, proxyModel);
     QVariant leftValue = pair.first;
     QVariant rightValue = pair.second;

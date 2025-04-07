@@ -29,7 +29,7 @@ Item {
         },
         RoleSorter {
             property string tag: "mixedCaseStringRole"
-            property var expectedValues: ["A", "b", "C", "D", "e"]
+            property var expectedValues: ["A", "C", "D", "b", "e"]
             roleName: "mixedCaseStringRole"
         }
     ]

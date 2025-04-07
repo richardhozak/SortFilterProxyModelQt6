@@ -25,6 +25,8 @@ namespace qqsfpm {
     \qmlproperty Qt.CaseSensitivity StringSorter::caseSensitivity
 
     This property holds the case sensitivity of the sorter.
+
+    This defaults to case-sensitive until set.
 */
 Qt::CaseSensitivity StringSorter::caseSensitivity() const
 {
@@ -111,6 +113,7 @@ int StringSorter::compare(const QModelIndex &sourceLeft, const QModelIndex &sour
     QPair<QVariant, QVariant> pair = sourceData(sourceLeft, sourceRight, proxyModel);
     QString leftValue = pair.first.toString();
     QString rightValue = pair.second.toString();
+
     return m_collator.compare(leftValue, rightValue);
 }
 
