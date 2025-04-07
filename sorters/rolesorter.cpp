@@ -1,11 +1,6 @@
 #include "rolesorter.h"
 #include "qqmlsortfilterproxymodel.h"
 
-#include "qvariantlessthan.h"
-
-
-
-
 namespace qqsfpm {
 
 /*!
@@ -62,15 +57,19 @@ QPair<QVariant, QVariant> RoleSorter::sourceData(const QModelIndex &sourceLeft, 
 int RoleSorter::compare(const QModelIndex &sourceLeft, const QModelIndex& sourceRight, const QQmlSortFilterProxyModel& proxyModel) const
 {
 
-  QPair<QVariant, QVariant> pair = sourceData(sourceLeft, sourceRight, proxyModel);
+    QPair<QVariant, QVariant> pair = sourceData(sourceLeft, sourceRight, proxyModel);
     QVariant leftValue = pair.first;
     QVariant rightValue = pair.second;
-    if (qqsfpm::lessThan(leftValue, rightValue))
-        return -1;
-    if (qqsfpm::lessThan(rightValue, leftValue))
-        return 1;
-    return 0;
 
+    QPartialOrdering ordering = QVariant::compare(leftValue, rightValue);
+
+    if (ordering < 0)
+        return -1;
+
+    if (ordering > 0)
+        return 1;
+
+    return 0;
 }
 
 
