@@ -15,35 +15,61 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON) # This is to find generated *.moc and *.h file
 
 add_library(
   SortFilterProxyModel OBJECT
-  qqmlsortfilterproxymodel.cpp
-  filters/filter.cpp
-  filters/filtercontainer.cpp
-  filters/rolefilter.cpp
-  filters/valuefilter.cpp
-  filters/indexfilter.cpp
-  filters/regexpfilter.cpp
-  filters/rangefilter.cpp
-  filters/expressionfilter.cpp
-  filters/filtercontainerfilter.cpp
-  filters/anyoffilter.cpp
   filters/alloffilter.cpp
+  filters/alloffilter.h
+  filters/anyoffilter.cpp
+  filters/anyoffilter.h
+  filters/expressionfilter.cpp
+  filters/expressionfilter.h
+  filters/filter.cpp
+  filters/filter.h
+  filters/filtercontainer.cpp
+  filters/filtercontainer.h
+  filters/filtercontainerfilter.cpp
+  filters/filtercontainerfilter.h
   filters/filtersqmltypes.cpp
-  sorters/sorter.cpp
-  sorters/sortercontainer.cpp
-  sorters/rolesorter.cpp
-  sorters/stringsorter.cpp
-  sorters/expressionsorter.cpp
-  sorters/sortersqmltypes.cpp
-  proxyroles/proxyrole.cpp
-  proxyroles/proxyrolecontainer.cpp
-  proxyroles/joinrole.cpp
-  proxyroles/switchrole.cpp
+  filters/indexfilter.cpp
+  filters/indexfilter.h
+  filters/rangefilter.cpp
+  filters/rangefilter.h
+  filters/regexpfilter.cpp
+  filters/regexpfilter.h
+  filters/rolefilter.cpp
+  filters/rolefilter.h
+  filters/valuefilter.cpp
+  filters/valuefilter.h
   proxyroles/expressionrole.cpp
-  proxyroles/proxyrolesqmltypes.cpp
-  proxyroles/singlerole.cpp
-  proxyroles/regexprole.cpp
-  sorters/filtersorter.cpp
+  proxyroles/expressionrole.h
   proxyroles/filterrole.cpp
+  proxyroles/filterrole.h
+  proxyroles/joinrole.cpp
+  proxyroles/joinrole.h
+  proxyroles/proxyrole.cpp
+  proxyroles/proxyrole.h
+  proxyroles/proxyrolecontainer.cpp
+  proxyroles/proxyrolecontainer.h
+  proxyroles/proxyrolesqmltypes.cpp
+  proxyroles/regexprole.cpp
+  proxyroles/regexprole.h
+  proxyroles/singlerole.cpp
+  proxyroles/singlerole.h
+  proxyroles/switchrole.cpp
+  proxyroles/switchrole.h
+  qqmlsortfilterproxymodel.cpp
+  qqmlsortfilterproxymodel.h
+  sorters/expressionsorter.cpp
+  sorters/expressionsorter.h
+  sorters/filtersorter.cpp
+  sorters/filtersorter.h
+  sorters/rolesorter.cpp
+  sorters/rolesorter.h
+  sorters/sorter.cpp
+  sorters/sorter.h
+  sorters/sortercontainer.cpp
+  sorters/sortercontainer.h
+  sorters/sortersqmltypes.cpp
+  sorters/stringsorter.cpp
+  sorters/stringsorter.h
 )
 
 target_link_libraries(SortFilterProxyModel PRIVATE Qt6::Core Qt6::Qml)
