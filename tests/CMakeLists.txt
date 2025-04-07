@@ -1,4 +1,4 @@
-project(GUIQMLScreenTest CXX)
+project(SortFilterProxyModelTest CXX)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Qml Quick QuickTest)
 
@@ -7,11 +7,21 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 add_executable(
-  SortFilterProxyModelTest
-  indexsorter.cpp
-  indexsorter.h
-  testroles.cpp
-  testroles.h
+  SortFilterProxyModelTest indexsorter.cpp indexsorter.h qmltest.cpp testroles.cpp testroles.h
+)
+
+macro(qml_add_tests)
+  foreach(test ${ARGV})
+    target_sources(SortFilterProxyModel PUBLIC ${test})
+    add_test(
+      NAME ${test}
+      COMMAND SortFilterProxyModelTest -platform offscreen -input ${test}
+      WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    )
+  endforeach()
+endmacro()
+
+qml_add_tests(
   tst_builtins.qml
   tst_delayed.qml
   tst_expressionrole.qml
@@ -28,7 +38,6 @@ add_executable(
   tst_rolesorter.qml
   tst_sortercontainerattached.qml
   tst_sorters.qml
-  tst_sortfilterproxymodel.cpp
   tst_sourceroles.qml
   tst_stringsorter.qml
   tst_switchrole.qml
@@ -42,5 +51,3 @@ target_link_libraries(
 target_compile_definitions(
   SortFilterProxyModelTest PUBLIC QUICK_TEST_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}"
 )
-
-add_test(NAME SortFilterProxyModelTest COMMAND SortFilterProxyModelTest -platform offscreen)
