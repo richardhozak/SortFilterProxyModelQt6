@@ -4,11 +4,11 @@ find_package(Qt6 REQUIRED COMPONENTS Core Qml Quick QuickTest)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 add_executable(
   SortFilterProxyModelTest indexsorter.cpp indexsorter.h qmltest.cpp testroles.cpp testroles.h
 )
+target_include_directories(SortFilterProxyModelTest PUBLIC ${PROJECT_SOURCE_DIR}/..)
 
 macro(qml_add_tests)
   foreach(test ${ARGV})
