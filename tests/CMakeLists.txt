@@ -12,7 +12,7 @@ add_executable(
 
 macro(qml_add_tests)
   foreach(test ${ARGV})
-    target_sources(SortFilterProxyModel PUBLIC ${test})
+    target_sources(SortFilterProxyModelTest PUBLIC ${test})
     add_test(
       NAME ${test}
       COMMAND SortFilterProxyModelTest -platform offscreen -input ${test}

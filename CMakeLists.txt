@@ -1,21 +1,29 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.17)
 
 project(SortFilterProxyModel)
-
-set(CMAKE_CXX_STANDARD 17)
-
-find_package(Qt6 REQUIRED COMPONENTS Core Qml)
 
 option(BUILD_DOCS "Build documentation" OFF)
 option(BUILD_TESTING "Build tests" OFF)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(REQUIRED_QT_VERSION 6.7.0)
+find_package(Qt6 ${REQUIRED_QT_VERSION} REQUIRED Core Qml)
+qt_standard_project_setup(REQUIRES 6.7)
+
 include(CTest)
+include(GNUInstallDirs)
 
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_INCLUDE_CURRENT_DIR ON) # This is to find generated *.moc and *.h files in build dir
 
-add_library(
-  SortFilterProxyModel OBJECT
+qt_add_qml_module(
+  SortFilterProxyModel
+  URI
+  SortFilterProxyModel
+  VERSION
+  0.2
+  SOURCES
   filters/alloffilter.cpp
   filters/alloffilter.h
   filters/anyoffilter.cpp
@@ -73,16 +81,35 @@ add_library(
   sorters/stringsorter.h
 )
 
+target_include_directories(SortFilterProxyModel PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(SortFilterProxyModel PRIVATE Qt6::Core Qt6::Qml)
 
 if((MSVC) AND (MSVC_VERSION GREATER_EQUAL 1914))
   target_compile_options(SortFilterProxyModel PUBLIC "/Zc:__cplusplus")
 endif()
 
-target_include_directories(
-  SortFilterProxyModel
-  PUBLIC ${CMAKE_CURRENT_LIST_DIR} $<TARGET_PROPERTY:Qt6::Core,INTERFACE_INCLUDE_DIRECTORIES>
-         $<TARGET_PROPERTY:Qt6::Qml,INTERFACE_INCLUDE_DIRECTORIES>
+install(
+  TARGETS SortFilterProxyModel
+  EXPORT SortFilterProxyModelTargets
+  LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+  ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+)
+
+install(
+  EXPORT SortFilterProxyModelTargets
+  NAMESPACE SortFilterProxyModel::
+  DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/SortFilterProxyModel"
+  FILE SortFilterProxyModelTargets.cmake
+)
+
+include(CMakePackageConfigHelpers)
+configure_package_config_file(
+  SortFilterProxyModelConfig.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/SortFilterProxyModelConfig.cmake"
+  INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/SortFilterProxyModel"
+)
+
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/SortFilterProxyModelConfig.cmake"
+        DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/SortFilterProxyModel"
 )
 
 if(BUILD_DOCS)

@@ -16,6 +16,7 @@ class QQmlSortFilterProxyModel : public QSortFilterProxyModel,
                                  public ProxyRoleContainer
 {
     Q_OBJECT
+    QML_NAMED_ELEMENT(SortFilterProxyModel)
     Q_INTERFACES(QQmlParserStatus)
     Q_INTERFACES(qqsfpm::FilterContainer)
     Q_INTERFACES(qqsfpm::SorterContainer)
