@@ -79,7 +79,7 @@ Item {
             for (var i = 0; i < testModel.count; i++) {
                 actualValues.push(testModel.get(i, sorter.roleName));
             }
-            compare(actualValues, sorter.expectedValues);
+            compare(actualValues, sorter.expectedValues, `Locale ${sorter.locale.name}`);
         }
     }
 }
