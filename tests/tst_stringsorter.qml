@@ -9,42 +9,49 @@ Item {
             property string tag: "normal"
             property var expectedValues: ["haha", "hähä", "hehe", "héhé", "hihi", "huhu"]
             roleName: "accentRole"
+            locale: Qt.locale("en_US")
         },
         StringSorter {
             property string tag: "numericMode"
             property var expectedValues: ["a1", "a20", "a30", "a99", "a100", "a1000"]
             roleName: "numericRole"
             numericMode: true
+            locale: Qt.locale("en_US")
         },
         StringSorter {
             property string tag: "nonNumericMode"
             property var expectedValues: ["a1", "a100", "a1000", "a20", "a30", "a99"]
             roleName: "numericRole"
             numericMode: false
+            locale: Qt.locale("en_US")
         },
         StringSorter {
             property string tag: "caseSensitive"
             property var expectedValues: ["a", "A", "b", "c", "z", "Z"]
             roleName: "caseRole"
             caseSensitivity: Qt.CaseSensitive
+            locale: Qt.locale("en_US")
         },
         StringSorter {
             property string tag: "nonCaseSensitive"
             property var expectedValues: ["A", "a", "b", "c", "Z", "z"]
             roleName: "caseRole"
             caseSensitivity: Qt.CaseInsensitive
+            locale: Qt.locale("en_US")
         },
         StringSorter {
             property string tag: "ignorePunctuation"
             property var expectedValues: ["aa", "a-a", "b-b", "b.c", "b-c", "bc"]
             roleName: "punctuationRole"
             ignorePunctation: true
+            locale: Qt.locale("en_US")
         },
         StringSorter {
             property string tag: "doNotIgnorePunctuation"
             property var expectedValues: ["a-a", "aa", "b-b", "b-c", "b.c", "bc"]
             roleName: "punctuationRole"
             ignorePunctation: false
+            locale: Qt.locale("en_US")
         }
     ]
 
