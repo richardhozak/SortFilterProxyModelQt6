@@ -18,7 +18,7 @@ namespace qqsfpm {
     \qmlproperty expression ExpressionSorter::expression
 
     An expression to implement custom sorting. It must evaluate to a bool.
-    It has the same syntax has a \l {http://doc.qt.io/qt-5/qtqml-syntax-propertybinding.html} {Property Binding}, except that it will be evaluated for each of the source model's rows.
+    It has the same syntax has a \l {http://doc.qt.io/qt-6/qtqml-syntax-propertybinding.html} {Property Binding}, except that it will be evaluated for each of the source model's rows.
     Model data is accessible for both rows with the \c modelLeft, and \c modelRight properties:
 
     \code

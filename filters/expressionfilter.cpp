@@ -18,7 +18,7 @@ namespace qqsfpm {
     \qmlproperty expression ExpressionFilter::expression
 
     An expression to implement custom filtering, it must evaluate to a boolean.
-    It has the same syntax has a \l {http://doc.qt.io/qt-5/qtqml-syntax-propertybinding.html} {Property Binding} except it will be evaluated for each of the source model's rows.
+    It has the same syntax has a \l {http://doc.qt.io/qt-6/qtqml-syntax-propertybinding.html} {Property Binding} except it will be evaluated for each of the source model's rows.
     Rows that have their expression evaluating to \c true will be accepted by the model.
     Data for each row is exposed like for a delegate of a QML View.
 

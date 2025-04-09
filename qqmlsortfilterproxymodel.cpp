@@ -13,7 +13,7 @@ namespace qqsfpm {
     \ingroup SortFilterProxyModel
     \ingroup FilterContainer
     \ingroup SorterContainer
-    \brief Filters and sorts data coming from a source \l {http://doc.qt.io/qt-5/qabstractitemmodel.html} {QAbstractItemModel}.
+    \brief Filters and sorts data coming from a source \l {http://doc.qt.io/qt-6/qabstractitemmodel.html} {QAbstractItemModel}.
 
     The SortFilterProxyModel type provides support for filtering and sorting data coming from a source model.
     \sa FilterContainer, SorterContainer
@@ -126,7 +126,7 @@ void QQmlSortFilterProxyModel::setFilterValue(const QVariant& filterValue)
 
     The role name of the source model's data used for the sorting.
 
-    \sa {http://doc.qt.io/qt-5/qsortfilterproxymodel.html#sortRole-prop} {sortRole}, roleForName
+    \sa {http://doc.qt.io/qt-6/qsortfilterproxymodel.html#sortRole-prop} {sortRole}, roleForName
 */
 const QString& QQmlSortFilterProxyModel::sortRoleName() const
 {

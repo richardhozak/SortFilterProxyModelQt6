@@ -117,7 +117,7 @@ This library is licensed under the MIT License.
 
 Documentation
 -------------
-This component is a subclass of [`QSortFilterProxyModel`](http://doc.qt.io/qt-5/qsortfilterproxymodel.html), to use it, you need to set the `sourceModel` property to a [`QAbstractItemModel*`](http://doc.qt.io/qt-5/qabstractitemmodel.html) with correct role names.
+This component is a subclass of [`QSortFilterProxyModel`](http://doc.qt.io/qt-6/qsortfilterproxymodel.html), to use it, you need to set the `sourceModel` property to a [`QAbstractItemModel*`](http://doc.qt.io/qt-6/qabstractitemmodel.html) with correct role names.
 This means you can use it with custom c++ models or `ListModel`, but not with JavaScript models like arrays, integers or object instances.
 
 The complete documentation reference is available here: https://okcerg.github.io/SortFilterProxyModel/

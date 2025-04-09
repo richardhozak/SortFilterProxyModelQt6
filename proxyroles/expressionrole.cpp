@@ -29,7 +29,7 @@ namespace qqsfpm {
     \qmlproperty expression ExpressionRole::expression
 
     An expression to implement a custom role.
-    It has the same syntax has a \l {http://doc.qt.io/qt-5/qtqml-syntax-propertybinding.html} {Property Binding} except it will be evaluated for each of the source model's rows.
+    It has the same syntax has a \l {http://doc.qt.io/qt-6/qtqml-syntax-propertybinding.html} {Property Binding} except it will be evaluated for each of the source model's rows.
     The data for this role will be the retuned valued of the expression.
     Data for each row is exposed like for a delegate of a QML View.
 

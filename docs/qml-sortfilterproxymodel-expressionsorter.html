@@ -59,7 +59,7 @@
 <td class="tblQmlPropNode"><p>
 <a name="expression-prop"></a><span class="name">expression</span> : <span class="type">expression</span></p></td></tr>
 </table></div>
-</div><div class="qmldoc"><p>An expression to implement custom sorting. It must evaluate to a bool. It has the same syntax has a <a href="http://doc.qt.io/qt-5/qtqml-syntax-propertybinding.html">Property Binding</a>, except that it will be evaluated for each of the source model's rows. Model data is accessible for both rows with the <code>modelLeft</code>, and <code>modelRight</code> properties:</p>
+</div><div class="qmldoc"><p>An expression to implement custom sorting. It must evaluate to a bool. It has the same syntax has a <a href="http://doc.qt.io/qt-6/qtqml-syntax-propertybinding.html">Property Binding</a>, except that it will be evaluated for each of the source model's rows. Model data is accessible for both rows with the <code>modelLeft</code>, and <code>modelRight</code> properties:</p>
 <pre class="cpp">sorters: ExpressionSorter {
     expression: {
         <span class="keyword">return</span> modelLeft<span class="operator">.</span>someRole <span class="operator">&lt;</span> modelRight<span class="operator">.</span>someRole;
