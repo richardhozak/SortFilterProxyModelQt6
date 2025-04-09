@@ -1,11 +1,11 @@
 project = SortFilterProxyModel
 
-sourcedirs = .
+sourcedirs = ../
 
 sources.fileextensions = "*.cpp *.qdoc *.qml"
 headers.fileextensions = "*.h"
 
-outputdir = docs/
+outputdir = generated/
 
 HTML.templatedir = .
 HTML.stylesheets = "offline.css"

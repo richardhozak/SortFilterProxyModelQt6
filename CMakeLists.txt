@@ -92,7 +92,7 @@ if(BUILD_DOCS)
   include(KDECMakeSettings)
   include(ECMGenerateQDoc)
 
-  ecm_generate_qdoc(SortFilterProxyModel sortfilterproxymodel.qdocconf)
+  ecm_generate_qdoc(SortFilterProxyModel docs/sortfilterproxymodel.qdocconf)
 endif()
 
 if(BUILD_TESTING)
